@@ -1,11 +1,11 @@
 {
   "name": "oboo",
   "description": "A Vue.js project",
-  "version": "1.0.2",
+  "version": "1.0.9",
   "author": "kano233333 <1320395666@qq.com>",
   "license": "MIT",
   "private": false,
-  "main": "dist/Obo.js",
+  "main": "dist/Oboo.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"

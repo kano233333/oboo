@@ -12,8 +12,7 @@
     },
     props:{
       imgs:{
-        type:Array,
-        default:[]
+        type:Array
       }
     },
     mounted(){
@@ -27,7 +26,7 @@
           return;
         }
         this.imgs.map(function(item){
-          let img = _this.imgPath+item.substring(1,item.length);
+          let img = item;
           let image = new Image();
           image.src = img;
           image.onload = () => {

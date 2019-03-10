@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <global-loading></global-loading>
+    <global-loading :imgs="['aaa.jpg']"></global-loading>
     <a class="a_link_dream"></a>
   </div>
 </template>
