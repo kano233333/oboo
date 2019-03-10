@@ -1,0 +1,220 @@
+//--------------------function
+.setCol(@i,@size) {
+    .col_@{i} {
+        width: 100*@size/24%;
+    }
+}
+.setColor(@className,@color){
+    .bg_@{className} {
+        background-color:@color;
+    }
+    .lin_side_@{className} {
+        background: linear-gradient(to right, rgba(0,0,0,0), @color, rgba(0,0,0,0));
+    }
+    .lin_left_@{className} {
+        background: linear-gradient(to right, @color, rgba(0,0,0,0));
+    }
+    .lin_right_@{className} {
+        background: linear-gradient(to right, rgba(0,0,0,0),@color);
+    }
+    .bq_@{className} {
+        border-left:5px solid @color;
+    }
+
+    .a_link_@{className} {
+        opacity: 0.9;
+        position:relative;
+        display: inline-block;
+    }
+    .a_link_@{className}:hover {
+        opacity:1;
+    }
+    .a_link_@{className}:hover::after,.a_link_@{className}:active::after {
+        transform: scaleX(1);
+    }
+    .a_link_@{className}::after {
+        content:'';
+        transform: scaleX(0);
+        width:100%;
+        height:2px;
+        background-color: @color;
+        position: absolute;
+        bottom: -2px;
+        left:0;
+        transition: .3s ease-in-out;
+    }
+    .t_@{className}{
+        color:@color;
+    }
+}
+.setBtnColor(@className,@color) {
+    .btn_@{className}{
+        color:#fff;
+        background-color:@color;
+        opacity:0.9;
+        transition: 0.2s all;
+    }
+    .btn_@{className}:hover {
+        box-shadow: 0 0 2px @color;
+        opacity:1;
+    }
+}
+
+//----------------------primary
+* {
+    padding:0;
+    margin:0;
+    transition:0.5s all;
+    letter-spacing: 1px;
+    font-size:20px;
+}
+
+input , button{
+    border:1px solid #dcd9db;
+    background-color:transparent;
+    padding:5px;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+    border:none;
+}
+
+input:hover,input:focus {
+    border:1px solid #c9c6c8;
+    box-shadow: 0 0 5px #bab8b9;
+}
+
+hr {
+    opacity: 0.9;
+    width:90%;
+    border:none;
+    height:1px;
+    margin:20px auto;
+    background: #b3b3b3;
+}
+
+blockquote {
+    border:1px solid #ebebeb;
+    padding:20px;
+    background-color: #ededed;
+    border-left:5px solid #999;
+}
+a {
+    text-decoration: none;
+    color:#666;
+    cursor: pointer;
+}
+
+
+//---------------------class
+#container {
+    width:100%;
+    margin:0 auto;
+    height:2000px;
+}
+
+.row {
+    display:flex;
+}
+.column {
+    display:flex;
+    flex-direction: column;
+}
+//----col
+.loop_col(@i) when (@i <= 24){
+    .setCol(@i,@i);
+    .loop_col(@i+1);
+}
+.loop_col(1);
+//-------------
+
+//----bg_color
+@color_name:primary,info,success,warning,danger,girl,dream;
+@color_rgb:#337AB7, #959595, #62ff6f, #ff9953,#FF6058,#FFB7C8,#D087FF;
+.loop_bg(@i) when (@i <= length(@color_name)){
+    .setColor(extract(@color_name,@i),extract(@color_rgb,@i));
+    .loop_bg(@i+1);
+}
+.loop_bg(1);
+//--------------
+
+//----btn
+.btn {
+    padding:10px;
+    border-radius:5px;
+}
+.loop_btn(@i) when (@i <= length(@color_name)){
+    .setBtnColor(extract(@color_name,@i),extract(@color_rgb,@i));
+    .loop_btn(@i+1);
+}
+.loop_btn(1);
+.btn_l {
+    width:100%;
+    display: block;
+}
+.btn_m {
+    width:50%;
+    display: block;
+}
+.btn_ms {
+    width:25%;
+    display: block;
+}
+.btn_s {
+    width:10%;
+    display: block;
+}
+//--------------
+
+.circle {
+    border-radius:50%;
+}
+
+.global_loading {
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    height:4px;
+    background-color: #b4aadc;
+}
+
+.aaa {
+    height: 1000px;
+    background-color: #fff;
+}
+
+
+
+//---------------------------media
+@media screen and (min-width:1921px) {
+    #container {
+        width:1212px;
+    }
+}
+
+
+//----------------------滚动条 chrome
+::-webkit-scrollbar {
+    width:8px;
+    margin-right:5px;
+    border:none;
+}
+::-webkit-scrollbar-button {
+    display: none;
+}
+::-webkit-scrollbar-track {
+    background-color: #e4e2e3;
+}
+::-webkit-scrollbar-track-piece {
+    border-radius:10px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #a3b2d7;
+    border-radius:15px;
+}
+::-webkit-scrollbar-corner {
+    background-color: #e4e2e3;
+}
