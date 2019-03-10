@@ -28,19 +28,7 @@ Oboo(Vue);
 
 ## UI
 
-> <span style="color:#337AB7;">primary</span>
->
-> <span style="color:#959595;">info</span>
->
-> <span style="color:#62ff6f;">success</span>
->
-> <span style="color:#ff9953;">warning</span>
->
-> <span style="color:#FF6058;">danger</span>
->
-> <span style="color:#FFB7C8;">girl</span>
->
-> <span style="color:#D087FF;">dream</span>
+<span style="color:#337AB7;">primary</span>    <span style="color:#959595;">info</span>   <span style="color:#62ff6f;">success</span>   <span style="color:#ff9953;">warning</span>   <span style="color:#FF6058;">danger</span>   <span style="color:#FFB7C8;">girl</span>   <span style="color:#D087FF;">dream</span>
 
 ```
 @color_name:primary,info,success,warning,danger,girl,dream;
