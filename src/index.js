@@ -1,5 +1,5 @@
 import GlobalLoading from './loading/globalLoading'
-import Vue from 'vue'
+import obooLess from './assets/styles/Obo.less'
 
 const Com = function(Vue){
   Vue.component("GlobalLoading", GlobalLoading)

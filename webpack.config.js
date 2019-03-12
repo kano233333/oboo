@@ -1,5 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+const extractLESS = new ExtractTextPlugin('oboo.css');
 
 module.exports = {
   entry: './src/index.js',
@@ -19,6 +21,10 @@ module.exports = {
           'vue-style-loader',
           'css-loader'
         ],
+        // use: ExtractTextPlugin.extract({
+          // 转换 .css 文件需要使用的 Loader
+          // use: ['css-loader'],
+        // }),
       },
       {
         test: /\.vue$/,
@@ -44,10 +50,14 @@ module.exports = {
       {
 
         test: /\.less$/,
-        loader: "style-loader!css-loader!less-loader",
+        // loader: "style-loader!css-loader!less-loader",
+        use: extractLESS.extract([ 'css-loader', 'less-loader' ])
       }
     ]
   },
+  plugins:[
+    extractLESS
+  ],
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
